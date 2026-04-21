@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(120deg, #edf2ff, #f5f8ff 55%, #e9faff);
+  color: #1e293b;
+}
+.app-shell { max-width: 1100px; margin: 0 auto; padding: 24px; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+h1 { margin: 0; font-size: 28px; }
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+}
+.hidden { display: none; }
+input, textarea, button {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  margin: 8px 0 14px;
+}
+button {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { background: #1d4ed8; }
+.result {
+  padding: 10px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+.heatmap-wrap img { width: 340px; max-width: 100%; border-radius: 8px; border: 1px solid #e2e8f0; }
+.history-item {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.small-btn { width: auto; padding: 8px 12px; margin-left: 8px; }

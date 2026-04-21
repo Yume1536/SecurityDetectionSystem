@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+backend/uploads/*
+backend/static/heatmaps/*
+backend/reports/*
+!.gitkeep

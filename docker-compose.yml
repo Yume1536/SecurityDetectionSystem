@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: security_detection
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python backend/app.py
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: security_detection
+      ALGO_SERVICE_URL: http://algorithm:5001
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mysql
+      - algorithm
+
+  algorithm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python algorithm_service/app.py
+    ports:
+      - '5001:5001'
