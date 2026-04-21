@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多模态大模型安全检测系统</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>多模态对抗样本安全检测系统</h1>
+      <div id="userPanel"></div>
+    </header>
+
+    <main>
+      <section id="authCard" class="card"></section>
+
+      <section id="detectCard" class="card hidden">
+        <h2>图像上传检测</h2>
+        <form id="detectForm">
+          <label>上传图像（必选）</label>
+          <input type="file" id="imageInput" accept="image/*" required />
+          <label>输入文本（可选）</label>
+          <textarea id="textInput" placeholder="输入与图像相关或探针文本"></textarea>
+          <button type="submit">开始PIP检测</button>
+        </form>
+        <div id="detectResult" class="result"></div>
+      </section>
+
+      <section id="vizCard" class="card hidden">
+        <h2>可视化分析</h2>
+        <div id="chart" style="height: 320px"></div>
+        <div class="heatmap-wrap">
+          <img id="heatmapImage" alt="热力图" />
+        </div>
+      </section>
+
+      <section id="historyCard" class="card hidden">
+        <h2>检测记录管理</h2>
+        <div id="historyList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
